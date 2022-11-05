@@ -4,6 +4,9 @@ body{
 }
 
 main{
+    width: 936px;
+    height: 626px;
+    border-radius: 50px;
     background: url("../img/background.jpg");
     background-size: cover;
     background-position: center;
