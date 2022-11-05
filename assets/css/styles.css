@@ -4,10 +4,20 @@ body{
 }
 
 main{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 936px;
     height: 626px;
     border-radius: 50px;
     background: url("../img/background.jpg");
     background-size: cover;
     background-position: center;
+}
+
+.game-board{
+    width: 700px;
+    height: 100%;
+    background: white;
 }
