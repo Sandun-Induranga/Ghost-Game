@@ -1,9 +1,9 @@
-body{
+body {
     width: 100vw;
     height: 100vh;
 }
 
-main{
+main {
     position: relative;
     display: flex;
     justify-content: center;
@@ -16,12 +16,12 @@ main{
     background-position: center;
 }
 
-.game-board{
+.game-board {
     width: 700px;
     height: 100%;
 }
 
-.pumpkin{
+.pumpkin {
     position: absolute;
     display: inline-block;
     width: 200px;
@@ -31,30 +31,42 @@ main{
     background-position: center;
 }
 
-.pumpkin-1{
+.pumpkin-1 {
     top: 70px;
     left: 120px;
 }
 
-.pumpkin-2{
+.pumpkin-2 {
     top: 70px;
     right: 120px;
 }
 
-.pumpkin-3{
+.pumpkin-3 {
     bottom: 70px;
     left: 120px;
 }
 
-.pumpkin-4{
+.pumpkin-4 {
     bottom: 70px;
     right: 120px;
 }
 
-.pumpkin-5{
+.pumpkin-5 {
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     margin: auto;
+}
+
+.evaluations {
+    padding-left: 10%;
+    padding-right: 10%;
+    position: absolute;
+    width: 100%;
+    top: 34px;
+}
+
+.progress{
+    width: 60%;
 }
