@@ -2,3 +2,9 @@ body{
     width: 100vw;
     height: 100vh;
 }
+
+main{
+    background: url("../img/background.jpg");
+    background-size: cover;
+    background-position: center;
+}
