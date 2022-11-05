@@ -3,8 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Ghost Game</title>
+
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="assets/css/styles.css">
+
 </head>
 <body class="bg-dark d-flex align-items-center justify-content-center">
 
@@ -24,13 +33,13 @@
     <section class="evaluations d-flex justify-content-between">
 
         <div>
-            <p>30</p>
+            <p class="h1 text-white">30</p>
+            <p class="text-white">Level 1</p>
         </div>
 
-        <div class="progress">
-            <div class="progress-bar" role="progressbar" aria-valuenow="70"
+        <div class="progress bg-transparent border border-1 border-white">
+            <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="70"
                  aria-valuemin="0" aria-valuemax="100" style="width:70%">
-                <span class="sr-only">70% Complete</span>
             </div>
         </div>
 
@@ -38,6 +47,7 @@
 
 </main>
 
+<!-- JS For Bootstrap -->
 <script src="assets/js/bootstrap.min.js"></script>
 
 </body>
