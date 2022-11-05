@@ -1,3 +1,7 @@
+* {
+    font-family: 'Dancing Script', cursive;
+}
+
 body {
     width: 100vw;
     height: 100vh;
@@ -22,6 +26,7 @@ main {
 }
 
 .pumpkin {
+    z-index: 5000;
     position: absolute;
     display: inline-block;
     width: 200px;
@@ -67,6 +72,18 @@ main {
     top: 34px;
 }
 
-.progress{
+.progress {
     width: 60%;
+}
+
+.ghost {
+    z-index: 3000;
+    position: relative;
+    width: 50%;
+    height: 50%;
+    background: url("../img/ghost.png");
+    top: 50%;
+    left: 0;
+    right: 0;
+    margin: auto;
 }
