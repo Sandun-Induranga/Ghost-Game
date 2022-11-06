@@ -26,7 +26,7 @@ main {
 }
 
 .pumpkin {
-    z-index: 5;
+    pointer-events: none;
     position: absolute;
     display: inline-block;
     width: 200px;
@@ -86,27 +86,33 @@ main {
 }
 
 .ghost {
-    z-index: 2;
+    z-index: 5;
+    pointer-events: auto;
     position: absolute;
     background: url("../img/ghost.png");
     width: 50%;
     height: 50%;
-    top: 0;
+    top: 50%;
     left: 0;
     right: 0;
     margin: auto;
     animation-name: dancing;
-    animation-duration: 2s;
+    animation-duration: 0.4s;
+    animation-timing-function: linear;
     animation-iteration-count: infinite;
-    transition-property: all;
     transition: all ease-in-out 0.4s;
+    cursor: pointer;
+}
+
+.ghost:hover{
+    border: 1px solid red;
 }
 
 @keyframes dancing {
     0% {
-        transform: rotate(2deg);
+        transform: rotate(5deg);
     }
     100% {
-        transform: rotate(-2deg);
+        transform: rotate(-5deg);
     }
 }
