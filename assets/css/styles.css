@@ -91,13 +91,15 @@ main {
     background: url("../img/ghost.png");
     width: 50%;
     height: 50%;
-    top: 0%;
+    top: 0;
     left: 0;
     right: 0;
     margin: auto;
     animation-name: dancing;
-    animation-duration: 1s;
+    animation-duration: 2s;
     animation-iteration-count: infinite;
+    transition-property: all;
+    transition: all ease-in-out 0.4s;
 }
 
 @keyframes dancing {
