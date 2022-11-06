@@ -101,11 +101,7 @@ main {
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     transition: all ease-in-out 0.4s;
-    cursor: pointer;
-}
-
-.ghost:hover{
-    border: 1px solid red;
+    cursor:url("../img/ban-hammer.gif"), auto;
 }
 
 @keyframes dancing {

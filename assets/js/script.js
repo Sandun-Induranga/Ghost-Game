@@ -27,7 +27,7 @@ $(".ghost").on("mousedown", function (event) {
     }
 });
 
-var shotAudio = new Audio('http://commondatastorage.googleapis.com/codeskulptor-demos/pyman_assets/eatpellet.ogg');
+var shotAudio = new Audio("https://rpg.hamsterrepublic.com/wiki-images/d/d7/Oddbounce.ogg");
 
 shotAudio.addEventListener("canplaythrough", () => {
     shotAudio.play().catch(e => {
