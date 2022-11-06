@@ -74,6 +74,7 @@ main {
 }
 
 .pumpkin::after {
+    z-index: 5;
     content: "";
     display: block;
     position: absolute;
@@ -85,7 +86,7 @@ main {
 }
 
 .ghost {
-    z-index: -1;
+    z-index: 2;
     position: absolute;
     background: url("../img/ghost.png");
     width: 50%;
@@ -94,4 +95,16 @@ main {
     left: 0;
     right: 0;
     margin: auto;
+    animation-name: dancing;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes dancing {
+    0% {
+        transform: rotate(2deg);
+    }
+    100% {
+        transform: rotate(-2deg);
+    }
 }
