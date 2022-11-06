@@ -1,9 +1,11 @@
 let pumpkinNumber;
+let up = false;
 
 function ghostAction() {
     pumpkinNumber = chooseRandomPumpkin();
     $(".ghost" + pumpkinNumber).css("top","0%");
     setTimeout(ghostIn, 1500);
+    up = false;
 }
 
 function ghostIn() {
@@ -17,9 +19,22 @@ function chooseRandomPumpkin() {
 setInterval(ghostAction, 2000);
 
 $(".ghost").on("mousedown", function (event) {
+    let ghost = $(".ghost")[0];
     let top = $(this).css("top");
     console.log(top)
     if (top == "0px"){
-        console.log("shot")
+        up = true;
     }
+});
+
+var shotAudio = new Audio('http://commondatastorage.googleapis.com/codeskulptor-demos/pyman_assets/eatpellet.ogg');
+
+shotAudio.addEventListener("canplaythrough", () => {
+    shotAudio.play().catch(e => {
+        $(".ghost").click(function () {
+            if (up){
+                shotAudio.play();
+            }
+        })
+    })
 });
