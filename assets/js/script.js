@@ -1,5 +1,6 @@
 let pumpkinNumber;
 let up = false;
+const shotAudio = new Audio("https://rpg.hamsterrepublic.com/wiki-images/d/d7/Oddbounce.ogg");
 
 function ghostAction() {
     pumpkinNumber = chooseRandomPumpkin();
@@ -18,16 +19,14 @@ function chooseRandomPumpkin() {
 
 setInterval(ghostAction, 2000);
 
-$(".ghost").on("mousedown", function (event) {
-    let ghost = $(".ghost")[0];
+$(".ghost").on("mousedown", function () {
     let top = $(this).css("top");
     console.log(top)
     if (top == "0px"){
+        $(this).css("background-image", "url(/img/ghost-attacked.png);");
         up = true;
     }
 });
-
-var shotAudio = new Audio("https://rpg.hamsterrepublic.com/wiki-images/d/d7/Oddbounce.ogg");
 
 shotAudio.addEventListener("canplaythrough", () => {
     shotAudio.play().catch(e => {
