@@ -21,8 +21,6 @@ function chooseRandomPumpkin() {
     return Math.floor(Math.random() * 6);
 }
 
-setInterval(ghostAction, 2000);
-
 $(".ghost").on("mousedown", function () {
     let top = $(this).css("top");
     if (top == "0px" && !clicked) {
@@ -63,4 +61,8 @@ shotAudio.addEventListener("canplaythrough", () => {
             }
         })
     })
+});
+
+$("#btnStart").on("click", function () {
+    setInterval(ghostAction, 2000);
 });
