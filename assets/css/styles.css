@@ -105,6 +105,11 @@ main {
     cursor:url("../img/ban-hammer.gif"), auto;
 }
 
+.btn>img{
+    width: 6em;
+    height: 5em;
+}
+
 @keyframes dancing {
     0% {
         transform: rotate(30deg);
