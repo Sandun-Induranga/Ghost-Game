@@ -1,8 +1,10 @@
 let pumpkinNumber;
 let up = false;
-const shotAudio = new Audio("https://rpg.hamsterrepublic.com/wiki-images/d/d7/Oddbounce.ogg");
 let clicked = false;
 let ariaValue = 100;
+
+const shotAudio = new Audio("https://rpg.hamsterrepublic.com/wiki-images/d/d7/Oddbounce.ogg");
+const backgroundAudio = new Audio("assets/background.mp3");
 
 function ghostAction() {
     clicked = false;
@@ -47,6 +49,8 @@ $(".ghost").on("mousedown", function () {
                         'Your file has been deleted.',
                         'success'
                     )
+                } else {
+                    window.location.reload();
                 }
             })
         }
@@ -63,6 +67,37 @@ shotAudio.addEventListener("canplaythrough", () => {
     })
 });
 
+backgroundAudio.addEventListener("canplaythrough", () => {
+    backgroundAudio.play().catch(e => {
+        $("#btnStart").click(function () {
+            backgroundAudio.volume = 0.5;
+            backgroundAudio.play();
+        })
+    })
+});
+
 $("#btnStart").on("click", function () {
     setInterval(ghostAction, 2000);
+    timer();
 });
+
+function timer() {
+    let x = 60;
+    setInterval(function () {
+        if (x >= 0) {
+            $("#txtTime").text(x);
+            x--;
+        } else {
+            clearInterval(this);
+            Swal.fire({
+                title: 'You Lose',
+                showClass: {
+                    popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__fadeOutUp'
+                }
+            })
+        }
+    }, 1000);
+}
