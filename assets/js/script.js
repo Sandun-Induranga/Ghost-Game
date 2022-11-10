@@ -2,9 +2,12 @@ let pumpkinNumber;
 let up = false;
 let clicked = false;
 let ariaValue = 100;
+let gameInterval;
+let timeInterval;
 
 const shotAudio = new Audio("https://rpg.hamsterrepublic.com/wiki-images/d/d7/Oddbounce.ogg");
 const backgroundAudio = new Audio("assets/background.mp3");
+backgroundAudio.loop = true;
 
 function ghostAction() {
     clicked = false;
@@ -34,32 +37,15 @@ $(".ghost").on("mousedown", function () {
         $(".progress-bar").css("width", `${ariaValue}%`);
         if (ariaValue == 0) {
             $("main").css("display", `none`);
-            Swal.fire({
-                title: 'You Won',
-                text: "Go To Next Level",
-                icon: 'success',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    Swal.fire(
-                        'Deleted!',
-                        'Your file has been deleted.',
-                        'success'
-                    )
-                } else {
-                    window.location.reload();
-                }
-            })
+            alert("You Won");
+            clearInterval(timeInterval);
         }
     }
 });
 
 shotAudio.addEventListener("canplaythrough", () => {
     shotAudio.play().catch(e => {
-        $(".ghost").click(function () {
+        $(".ghost").on("click",function () {
             if (up) {
                 shotAudio.play();
             }
@@ -69,7 +55,7 @@ shotAudio.addEventListener("canplaythrough", () => {
 
 backgroundAudio.addEventListener("canplaythrough", () => {
     backgroundAudio.play().catch(e => {
-        $("#btnStart").click(function () {
+        $("#btnStart").on("click", function () {
             backgroundAudio.volume = 0.5;
             backgroundAudio.play();
         })
@@ -77,27 +63,21 @@ backgroundAudio.addEventListener("canplaythrough", () => {
 });
 
 $("#btnStart").on("click", function () {
-    setInterval(ghostAction, 2000);
+    clearInterval(gameInterval);
+    gameInterval = setInterval(ghostAction, 2000);
     timer();
 });
 
 function timer() {
     let x = 60;
-    setInterval(function () {
+    clearInterval(timeInterval);
+    timeInterval = setInterval(function () {
         if (x >= 0) {
             $("#txtTime").text(x);
             x--;
         } else {
             clearInterval(this);
-            Swal.fire({
-                title: 'You Lose',
-                showClass: {
-                    popup: 'animate__animated animate__fadeInDown'
-                },
-                hideClass: {
-                    popup: 'animate__animated animate__fadeOutUp'
-                }
-            })
+            alert("You Lose");
         }
     }, 1000);
 }
