@@ -1,9 +1,16 @@
+/**
+ * @author : Sandun Induranga
+ * @since : 0.1.0
+ **/
+
 let pumpkinNumber;
 let up = false;
 let clicked = false;
 let ariaValue = 100;
 let gameInterval;
 let timeInterval;
+let decHealth = 10;
+let level = "level1";
 
 const shotAudio = new Audio("https://rpg.hamsterrepublic.com/wiki-images/d/d7/Oddbounce.ogg");
 const backgroundAudio = new Audio("assets/background.mp3");
@@ -32,20 +39,25 @@ $(".ghost").on("mousedown", function () {
         up = true;
         clicked = true;
         $(".ghost").css("background", "url(assets/img/ghost-attacked.png)");
-        ariaValue -= 10;
+        ariaValue -= decHealth;
         $(".progress-bar").attr("aria-valuenow", ariaValue);
         $(".progress-bar").css("width", `${ariaValue}%`);
         if (ariaValue == 0) {
             $("main").css("display", `none`);
-            alert("You Won");
             clearInterval(timeInterval);
+            clearInterval(gameInterval);
+            let result = confirm("You Won");
+            if (result){
+                decHealth--;
+                gameInterval = setInterval(ghostAction,2000);
+            }
         }
     }
 });
 
 shotAudio.addEventListener("canplaythrough", () => {
     shotAudio.play().catch(e => {
-        $(".ghost").on("click",function () {
+        $(".ghost").on("click", function () {
             if (up) {
                 shotAudio.play();
             }
