@@ -10,7 +10,7 @@ let ariaValue = 100;
 let gameInterval;
 let timeInterval;
 let decHealth = 10;
-let level = "level1";
+let level = 1;
 
 const shotAudio = new Audio("https://rpg.hamsterrepublic.com/wiki-images/d/d7/Oddbounce.ogg");
 const backgroundAudio = new Audio("assets/background.mp3");
@@ -42,14 +42,17 @@ $(".ghost").on("mousedown", function () {
         ariaValue -= decHealth;
         $(".progress-bar").attr("aria-valuenow", ariaValue);
         $(".progress-bar").css("width", `${ariaValue}%`);
-        if (ariaValue == 0) {
-            $("main").css("display", `none`);
+        if (ariaValue <= 0) {
             clearInterval(timeInterval);
             clearInterval(gameInterval);
             let result = confirm("You Won");
-            if (result){
+            if (result) {
+                ariaValue = 100;
+                $(".progress-bar").attr("aria-valuenow", 100);
+                $(".progress-bar").css("width", `100%`);
+                level +=1;
                 decHealth--;
-                gameInterval = setInterval(ghostAction,2000);
+                startGame();
             }
         }
     }
@@ -75,9 +78,7 @@ backgroundAudio.addEventListener("canplaythrough", () => {
 });
 
 $("#btnStart").on("click", function () {
-    clearInterval(gameInterval);
-    gameInterval = setInterval(ghostAction, 2000);
-    timer();
+    startGame();
 });
 
 function timer() {
@@ -92,4 +93,11 @@ function timer() {
             alert("You Lose");
         }
     }, 1000);
+}
+
+function startGame() {
+    $("#lblLevel").text("Level " + level);
+    clearInterval(gameInterval);
+    gameInterval = setInterval(ghostAction, 2000);
+    timer();
 }
