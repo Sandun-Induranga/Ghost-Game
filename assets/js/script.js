@@ -106,6 +106,7 @@ function timer() {
             x--;
         } else {
             laugh();
+            laughAudio.play();
             clearInterval(timeInterval);
             $(".message").css("display", "flex");
             $(".message > p").append("Game Over");
@@ -142,8 +143,6 @@ function timerAfterWon() {
 function laugh() {
     backgroundAudio.volume=0;
     laughAudio.addEventListener("canplaythrough", () => {
-        laughAudio.play().catch(e => {
-            laughAudio.play();
-        });
+
     });
 }
