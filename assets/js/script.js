@@ -42,6 +42,8 @@ $(".ghost").on("mousedown", function () {
         ariaValue -= decHealth;
         $(".progress-bar").attr("aria-valuenow", ariaValue);
         $(".progress-bar").css("width", `${ariaValue}%`);
+        $("#score").empty();
+        $("#score").append(`${100-ariaValue}/100`);
         if (ariaValue <= 0) {
 
             clearInterval(timeInterval);
