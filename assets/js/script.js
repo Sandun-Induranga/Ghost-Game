@@ -50,9 +50,10 @@ $(".ghost").on("mousedown", function () {
                 ariaValue = 100;
                 $(".progress-bar").attr("aria-valuenow", 100);
                 $(".progress-bar").css("width", `100%`);
-                level +=1;
+                level += 1;
                 decHealth--;
-                startGame();
+                timerAfterWon();
+                setTimeout(startGame, 3000)
             }
         }
     }
@@ -100,4 +101,19 @@ function startGame() {
     clearInterval(gameInterval);
     gameInterval = setInterval(ghostAction, 2000);
     timer();
+}
+
+function timerAfterWon() {
+    let x = 3;
+    let wonInterval;
+    clearInterval(wonInterval);
+    wonInterval = setInterval(function () {
+        if (x >= 0) {
+            console.log(x);
+        } else {
+            clearInterval(wonInterval);
+            return;
+        }
+        x--;
+    }, 1000);
 }
