@@ -120,11 +120,13 @@ main {
     display: none;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     position: absolute;
     width: 97.5vw;
     height: 97.5vh;
     background: #0a53be;
     z-index: 10;
+    color: white;
 }
 
 .message > p {
