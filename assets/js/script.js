@@ -48,11 +48,11 @@ $(".ghost").on("mousedown", function () {
             clearInterval(gameInterval);
 
             Swal.fire({
-                title: 'Do you want to save the changes?',
+                title: 'You Won..!',
                 showDenyButton: true,
                 showCancelButton: true,
                 confirmButtonText: 'Continue',
-                denyButtonText: `Don't save`,
+                denyButtonText: `Back`,
             }).then((result) => {
                 /* Read more about isConfirmed, isDenied below */
                 if (result.isConfirmed) {
@@ -77,8 +77,8 @@ shotAudio.addEventListener("canplaythrough", () => {
             if (up) {
                 shotAudio.play();
             }
-        })
-    })
+        });
+    });
 });
 
 backgroundAudio.addEventListener("canplaythrough", () => {
@@ -86,8 +86,8 @@ backgroundAudio.addEventListener("canplaythrough", () => {
         $("#btnStart").on("click", function () {
             backgroundAudio.volume = 0.5;
             backgroundAudio.play();
-        })
-    })
+        });
+    });
 });
 
 $("#btnStart").on("click", function () {

@@ -3,10 +3,6 @@
 * @since : 0.1.0
 **/
 
-* {
-    font-family: 'Dancing Script', cursive;
-}
-
 body {
     width: 100vw;
     height: 100vh;
@@ -67,11 +63,16 @@ main {
 }
 
 .evaluations {
+    font-family: 'Dancing Script', cursive;
     padding-left: 5%;
     padding-right: 10%;
     position: absolute;
     width: 100%;
     top: 34px;
+}
+
+.evaluations > div:last-child{
+    color: white;
 }
 
 .progress {
