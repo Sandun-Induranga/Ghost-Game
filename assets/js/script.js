@@ -43,18 +43,30 @@ $(".ghost").on("mousedown", function () {
         $(".progress-bar").attr("aria-valuenow", ariaValue);
         $(".progress-bar").css("width", `${ariaValue}%`);
         if (ariaValue <= 0) {
+
             clearInterval(timeInterval);
             clearInterval(gameInterval);
-            let result = confirm("You Won");
-            if (result) {
-                ariaValue = 100;
-                $(".progress-bar").attr("aria-valuenow", 100);
-                $(".progress-bar").css("width", `100%`);
-                level += 1;
-                decHealth--;
-                timerAfterWon();
-                setTimeout(startGame, 3000);
-            }
+
+            Swal.fire({
+                title: 'Do you want to save the changes?',
+                showDenyButton: true,
+                showCancelButton: true,
+                confirmButtonText: 'Continue',
+                denyButtonText: `Don't save`,
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    ariaValue = 100;
+                    $(".progress-bar").attr("aria-valuenow", 100);
+                    $(".progress-bar").css("width", `100%`);
+                    level += 1;
+                    decHealth--;
+                    timerAfterWon();
+                    setTimeout(startGame, 3000);
+                } else if (result.isDenied) {
+                    Swal.fire('Changes are not saved', '', 'info')
+                }
+            });
         }
     }
 });
@@ -108,7 +120,6 @@ function timerAfterWon() {
     let wonInterval = null;
     clearInterval(wonInterval);
     $(".message").css("display", "flex");
-    // $(".message").append(`<p>${x}</p>`);
     wonInterval = setInterval(function () {
         if (x >= 0) {
             $(".message > p").empty();
