@@ -107,11 +107,16 @@ function timerAfterWon() {
     let x = 3;
     let wonInterval;
     clearInterval(wonInterval);
+    $(".message").css("display", "flex");
+    // $(".message").append(`<p>${x}</p>`);
     wonInterval = setInterval(function () {
         if (x >= 0) {
-            console.log(x);
+            $(".message > p").empty();
+            $(".message > p").append(x);
         } else {
             clearInterval(wonInterval);
+            $(".message").css("display", "none");
+            $(".message > p").append("...");
             return;
         }
         x--;
