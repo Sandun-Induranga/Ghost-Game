@@ -57,7 +57,7 @@ $(".ghost").on("mousedown", function () {
                 confirmButtonText: 'Continue',
                 denyButtonText: `Back`,
             }).then((result) => {
-                /* Read more about isConfirmed, isDenied below */
+
                 if (result.isConfirmed) {
                     ariaValue = 100;
                     $(".progress-bar").attr("aria-valuenow", 100);
@@ -69,6 +69,7 @@ $(".ghost").on("mousedown", function () {
                 } else if (result.isDenied) {
                     Swal.fire('Changes are not saved', '', 'info')
                 }
+
             });
         }
     }
@@ -109,14 +110,13 @@ function timer() {
             laughAudio.play();
             clearInterval(timeInterval);
             $(".over").css("display", "flex");
-            $(".over > p").append("Game Over");
         }
     }, 1000);
 }
 
 function startGame() {
-    $(".over > h1").empty();
-    $(".over > h1").append("Level" + level);
+    backgroundAudio.volume = 0.5;
+    $(".over").css("display", "none");
     $("#lblLevel").text("Level " + level);
     clearInterval(gameInterval);
     gameInterval = setInterval(ghostAction, 2000);
@@ -130,7 +130,8 @@ function timerAfterWon() {
     $(".message").css("display", "flex");
     wonInterval = setInterval(function () {
         if (x >= 0) {
-            $(".message > p").empty();
+            $(".message > p, .message > h1").empty();
+            $(".message > h1").append("Level" + level);
             $(".message > p").append(x == 0 ? "" : x);
         } else {
             clearInterval(wonInterval);
