@@ -53,7 +53,7 @@ $(".ghost").on("mousedown", function () {
                 level += 1;
                 decHealth--;
                 timerAfterWon();
-                setTimeout(startGame, 3000)
+                setTimeout(startGame, 3000);
             }
         }
     }
