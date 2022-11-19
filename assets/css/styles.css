@@ -132,6 +132,32 @@ main {
     color: white;
 }
 
+.over{
+    width: 97.5vw;
+    height: 97.5vh;
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 10;
+    background: #0a53be;
+    gap: 20px;
+}
+
+.over>h1{
+    color: white;
+}
+
+.over > button{
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    font-size: 2em;
+    background: #0dcaf0;
+    color: white;
+}
+
 @keyframes dancing {
     0% {
         transform: rotate(30deg);
