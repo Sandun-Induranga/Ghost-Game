@@ -115,6 +115,15 @@ main {
     height: 5em;
 }
 
+.message{
+    /*display: none;*/
+    position: absolute;
+    width: 97.5vw;
+    height: 97.5vh;
+    background: #0a53be;
+    z-index: 10;
+}
+
 @keyframes dancing {
     0% {
         transform: rotate(30deg);
