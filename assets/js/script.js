@@ -108,13 +108,15 @@ function timer() {
             laugh();
             laughAudio.play();
             clearInterval(timeInterval);
-            $(".message").css("display", "flex");
-            $(".message > p").append("Game Over");
+            $(".over").css("display", "flex");
+            $(".over > p").append("Game Over");
         }
     }, 1000);
 }
 
 function startGame() {
+    $(".over > h1").empty();
+    $(".over > h1").append("Level" + level);
     $("#lblLevel").text("Level " + level);
     clearInterval(gameInterval);
     gameInterval = setInterval(ghostAction, 2000);
@@ -146,3 +148,7 @@ function laugh() {
 
     });
 }
+
+$(".over > button").on("click", function () {
+    startGame();
+})

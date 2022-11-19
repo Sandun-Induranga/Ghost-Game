@@ -135,7 +135,7 @@ main {
 .over {
     width: 97.5vw;
     height: 97.5vh;
-    display: flex;
+    display: none;
     position: absolute;
     justify-content: center;
     align-items: center;
