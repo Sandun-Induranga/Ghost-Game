@@ -14,6 +14,7 @@ let level = 1;
 
 const shotAudio = new Audio("https://rpg.hamsterrepublic.com/wiki-images/d/d7/Oddbounce.ogg");
 const backgroundAudio = new Audio("assets/background.mp3");
+const laughAudio = new Audio("assets/laugh.mp3");
 backgroundAudio.loop = true;
 
 function ghostAction() {
@@ -104,8 +105,10 @@ function timer() {
             $("#txtTime").text(x);
             x--;
         } else {
-            clearInterval(this);
-            alert("You Lose");
+            laugh();
+            clearInterval(timeInterval);
+            $(".message").css("display", "flex");
+            $(".message > p").append("Game Over");
         }
     }, 1000);
 }
@@ -134,4 +137,13 @@ function timerAfterWon() {
         }
         x--;
     }, 1000);
+}
+
+function laugh() {
+    backgroundAudio.volume=0;
+    laughAudio.addEventListener("canplaythrough", () => {
+        laughAudio.play().catch(e => {
+            laughAudio.play();
+        });
+    });
 }
