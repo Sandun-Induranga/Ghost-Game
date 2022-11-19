@@ -71,7 +71,7 @@ main {
     top: 34px;
 }
 
-.evaluations > div:last-child{
+.evaluations > div:last-child {
     color: white;
 }
 
@@ -108,15 +108,15 @@ main {
     animation-direction: alternate;
     animation-iteration-count: infinite;
     transition: all ease-in-out 0.4s;
-    cursor:url("../img/ban-hammer.gif"), auto;
+    cursor: url("../img/ban-hammer.gif"), auto;
 }
 
-.btn>img{
+.btn > img {
     width: 6em;
     height: 5em;
 }
 
-.message{
+.message {
     display: none;
     justify-content: center;
     align-items: center;
@@ -127,12 +127,12 @@ main {
     z-index: 10;
 }
 
-.message > p{
+.message > p {
     font-size: 3em;
     color: white;
 }
 
-.over{
+.over {
     width: 97.5vw;
     height: 97.5vh;
     display: flex;
@@ -145,11 +145,11 @@ main {
     gap: 20px;
 }
 
-.over>h1{
+.over > h1 {
     color: white;
 }
 
-.over > button{
+.over > button {
     width: 100px;
     height: 100px;
     border-radius: 100%;
