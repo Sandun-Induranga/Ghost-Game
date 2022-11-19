@@ -105,14 +105,14 @@ function startGame() {
 
 function timerAfterWon() {
     let x = 3;
-    let wonInterval;
+    let wonInterval = null;
     clearInterval(wonInterval);
     $(".message").css("display", "flex");
     // $(".message").append(`<p>${x}</p>`);
     wonInterval = setInterval(function () {
         if (x >= 0) {
             $(".message > p").empty();
-            $(".message > p").append(x);
+            $(".message > p").append(x == 0 ? "" : x);
         } else {
             clearInterval(wonInterval);
             $(".message").css("display", "none");
