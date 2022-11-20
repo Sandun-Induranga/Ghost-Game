@@ -70,7 +70,7 @@ $(".ghost").on("mousedown", function () {
                     timerAfterWon();
                     setTimeout(startGame, 3000);
                 } else if (result.isDenied) {
-                    Swal.fire('Changes are not saved', '', 'info')
+                    Swal.fire('Changes are not saved', '', 'info');
                 }
 
             });
