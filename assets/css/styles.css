@@ -192,6 +192,11 @@ main {
     color: white;
 }
 
+.controls > button > i{
+    font-size: 3em;
+    color: white;
+}
+
 @keyframes dancing {
     0% {
         transform: rotate(30deg);
