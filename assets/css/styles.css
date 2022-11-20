@@ -156,7 +156,7 @@ main {
     position: absolute;
     width: 97.5vw;
     height: 97.5vh;
-    background: #0a53be;
+    background-image: linear-gradient(to right top, #da004c, #d8006e, #c60097, #9a00c3, #1238eb);
     z-index: 10;
     color: white;
 }
@@ -175,7 +175,7 @@ main {
     align-items: center;
     flex-direction: column;
     z-index: 10;
-    background: #0a53be;
+    background-image: linear-gradient(to right top, #da004c, #d8006e, #c60097, #9a00c3, #1238eb);
     gap: 20px;
 }
 
