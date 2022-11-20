@@ -119,6 +119,10 @@ main {
     cursor: url("../img/ban-hammer.gif"), auto;
 }
 
+.pumpkin-1 > .ghost, .pumpkin-2 > .ghost{
+    width: 60%;
+}
+
 .btn > img {
     width: 6em;
     height: 5em;
