@@ -99,6 +99,26 @@ main {
     background-position: center;
 }
 
+.pumpkin::before {
+    z-index: 10;
+    content: "";
+    display: block;
+    position: absolute;
+    background: #07072B;
+    bottom: -5px;
+    width: 80%;
+    height: 10%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    box-shadow: 2px 2px 20px 10px #07072B;
+    border-radius: 20px;
+}
+
+.pumpkin-1::before, .pumpkin-2::before {
+    width: 60%;
+}
+
 .ghost {
     z-index: 5;
     pointer-events: auto;
