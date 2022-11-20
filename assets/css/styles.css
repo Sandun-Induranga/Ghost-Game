@@ -14,7 +14,7 @@ main {
     justify-content: center;
     align-items: center;
     width: 936px;
-    height: 626px;
+    height: 80%;
     border-radius: 50px;
     background: url("../img/background.jpg");
     background-size: cover;
@@ -30,28 +30,34 @@ main {
     pointer-events: none;
     position: absolute;
     display: inline-block;
+}
+
+.pumpkin-1 {
+    top: 20%;
+    left: 120px;
+    width: 150px;
+    height: 150px;
+}
+
+.pumpkin-2 {
+    top: 20%;
+    right: 120px;
+    width: 150px;
+    height: 150px;
+}
+
+.pumpkin-3 {
+    bottom: 20%;
+    left: 120px;
     width: 200px;
     height: 200px;
 }
 
-.pumpkin-1 {
-    top: 70px;
-    left: 120px;
-}
-
-.pumpkin-2 {
-    top: 70px;
-    right: 120px;
-}
-
-.pumpkin-3 {
-    bottom: 70px;
-    left: 120px;
-}
-
 .pumpkin-4 {
-    bottom: 70px;
+    bottom: 20%;
     right: 120px;
+    width: 200px;
+    height: 200px;
 }
 
 .pumpkin-5 {
@@ -60,6 +66,8 @@ main {
     left: 0;
     right: 0;
     margin: auto;
+    width: 180px;
+    height: 180px;
 }
 
 .evaluations {
