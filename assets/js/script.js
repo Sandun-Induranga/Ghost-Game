@@ -15,6 +15,7 @@ let level = 1;
 const shotAudio = new Audio("https://rpg.hamsterrepublic.com/wiki-images/d/d7/Oddbounce.ogg");
 const backgroundAudio = new Audio("assets/background.mp3");
 const laughAudio = new Audio("assets/laugh.mp3");
+const winAudio = new Audio("assets/win-sound.mp3");
 backgroundAudio.loop = true;
 
 function ghostAction() {
@@ -47,6 +48,8 @@ $(".ghost").on("mousedown", function () {
         $("#score").append(`${100-ariaValue}/100`);
         if (ariaValue <= 0) {
 
+            backgroundAudio.volume = 0;
+            winAudio.play();
             clearInterval(timeInterval);
             clearInterval(gameInterval);
 
@@ -115,6 +118,8 @@ function timer() {
 }
 
 function startGame() {
+    $("#score").empty();
+    $("#score").append(`00/100`);
     backgroundAudio.volume = 0.5;
     $(".over").css("display", "none");
     $("#lblLevel").text("Level " + level);
@@ -131,7 +136,7 @@ function timerAfterWon() {
     wonInterval = setInterval(function () {
         if (x >= 0) {
             $(".message > p, .message > h1").empty();
-            $(".message > h1").append("Level" + level);
+            $(".message > h1").append("Level " + level);
             $(".message > p").append(x == 0 ? "" : x);
         } else {
             clearInterval(wonInterval);
