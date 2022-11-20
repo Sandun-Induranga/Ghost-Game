@@ -45,7 +45,7 @@ $(".ghost").on("mousedown", function () {
         $(".progress-bar").attr("aria-valuenow", ariaValue);
         $(".progress-bar").css("width", `${ariaValue}%`);
         $("#score").empty();
-        $("#score").append(`${100-ariaValue}/100`);
+        $("#score").append(`${100 - ariaValue}/100`);
         if (ariaValue <= 0) {
 
             backgroundAudio.volume = 0;
@@ -149,7 +149,7 @@ function timerAfterWon() {
 }
 
 function laugh() {
-    backgroundAudio.volume=0;
+    backgroundAudio.volume = 0;
     laughAudio.addEventListener("canplaythrough", () => {
 
     });
@@ -157,4 +157,9 @@ function laugh() {
 
 $(".over > button").on("click", function () {
     startGame();
+});
+
+$("#btnStop").on("click", function () {
+    clearInterval(timeInterval);
+    clearInterval(gameInterval);
 })
