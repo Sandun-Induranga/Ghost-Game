@@ -141,7 +141,7 @@ function timerAfterWon() {
         } else {
             clearInterval(wonInterval);
             $(".message").css("display", "none");
-            $(".message > p").append("....");
+            $(".message > p").append("...");
             return;
         }
         x--;
