@@ -13,9 +13,9 @@ let decHealth = 10;
 let level = 1;
 
 const shotAudio = new Audio("https://rpg.hamsterrepublic.com/wiki-images/d/d7/Oddbounce.ogg");
-const backgroundAudio = new Audio("assets/background.mp3");
-const laughAudio = new Audio("assets/laugh.mp3");
-const winAudio = new Audio("assets/win-sound.mp3");
+const backgroundAudio = new Audio("assets/audio/background.mp3");
+const laughAudio = new Audio("assets/audio/laugh.mp3");
+const winAudio = new Audio("assets/audio/win-sound.mp3");
 backgroundAudio.loop = true;
 
 function ghostAction() {
