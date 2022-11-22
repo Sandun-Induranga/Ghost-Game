@@ -156,6 +156,8 @@ function laugh() {
 }
 
 $(".over > button").on("click", function () {
+    ariaValue = 100;
+    $(".progress-bar").css("width", `100%`);
     startGame();
 });
 
