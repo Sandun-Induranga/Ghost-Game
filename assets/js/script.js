@@ -78,22 +78,18 @@ $(".ghost").on("mousedown", function () {
     }
 });
 
-shotAudio.addEventListener("canplaythrough", () => {
-    shotAudio.play().catch(e => {
-        $(".ghost").on("click", function () {
-            if (up) {
-                shotAudio.play();
-            }
-        });
+shotAudio.play().catch(e => {
+    $(".ghost").on("click", function () {
+        if (up) {
+            shotAudio.play();
+        }
     });
 });
 
-backgroundAudio.addEventListener("canplaythrough", () => {
-    backgroundAudio.play().catch(e => {
-        $("#btnStart").on("click", function () {
-            backgroundAudio.volume = 0.5;
-            backgroundAudio.play();
-        });
+backgroundAudio.play().catch(e => {
+    $("#btnStart").on("click", function () {
+        backgroundAudio.volume = 1;
+        backgroundAudio.play();
     });
 });
 
@@ -118,9 +114,15 @@ function timer() {
 }
 
 function startGame() {
+    ariaValue = 100;
+    $("#btnStart").css("display", "none");
+    $("#btnStop").css("display", "block");
+    $("#main-image").css("display", "none");
+    $(".progress-bar").attr("aria-valuenow", 100);
+    $(".progress-bar").css("width", `100%`);
     $("#score").empty();
     $("#score").append(`00/100`);
-    backgroundAudio.volume = 0.5;
+    backgroundAudio.volume = 1;
     $(".over").css("display", "none");
     $("#lblLevel").text("Level " + level);
     clearInterval(gameInterval);
@@ -164,4 +166,5 @@ $(".over > button").on("click", function () {
 $("#btnStop").on("click", function () {
     clearInterval(timeInterval);
     clearInterval(gameInterval);
+    startGame();
 })
