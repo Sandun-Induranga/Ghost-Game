@@ -124,6 +124,7 @@ main {
     pointer-events: auto;
     position: absolute;
     background: url("../img/ghost.png");
+    background-size: 100% 100% !important;
     width: 50%;
     height: 50%;
     top: 50%;
@@ -139,13 +140,22 @@ main {
     cursor: url("../img/ban-hammer.gif"), auto;
 }
 
-.pumpkin-1 > .ghost, .pumpkin-2 > .ghost{
+.pumpkin-1 > .ghost, .pumpkin-2 > .ghost {
     width: 60%;
 }
 
 .btn > img {
     width: 6em;
     height: 5em;
+}
+
+.btn:last-child > img {
+    width: 5em;
+    height: 5em;
+}
+
+.btn:last-child{
+    display: none;
 }
 
 .message {
@@ -192,8 +202,8 @@ main {
     color: white;
 }
 
-.controls > button > i{
-    font-size: 3em;
+.controls > button > img {
+    font-size: 2em;
     color: white;
 }
 
@@ -206,8 +216,8 @@ main {
     }
 }
 
-@media all and (max-width: 450px) and (min-width: 310px){
-    main{
+@media all and (max-width: 450px) and (min-width: 310px) {
+    main {
         width: 95vw;
     }
 
@@ -240,4 +250,30 @@ main {
         height: 110px;
     }
 
+    .ghost{
+        width: 40%;
+        height: 50%;
+        background-size: 100% 100% !important;
+        background-position: right;
+    }
+
+}
+
+#main-image {
+    position: absolute;
+    width: 97.5vw;
+    height: 97.5vh;
+    z-index: 10;
+    background: url("../img/main-image.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+#main-image>p{
+    font-size: 5em;
+    margin: 50px;
+}
+
+#btnStart, #btnStop {
+    z-index: 20;
 }
